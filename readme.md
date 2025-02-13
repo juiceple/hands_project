@@ -46,8 +46,8 @@
 
 ## 발견된 오류
 1. serial module 'serial' has no attribute 'Serial'
-   오류원인
-   pyserial이 올바른 위치에 설치되지 않음
+<br/>오류원인
+  <br/> pyserial이 올바른 위치에 설치되지 않음
    해결방법
    ```bash
       python -m pip install --force-reinstall pyserial
