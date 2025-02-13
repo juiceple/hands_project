@@ -22,36 +22,57 @@
 
 ### 1. 초기 설정
 - 라즈베리 파이의 전원을 켭니다.
-- 아두이노는 `arduino.py`가 컴파일된 상태에서 USB로 연결된 상태를 유지합니다.
+- 아두이노는 HC-06을 블루투스로 연결합니다.
 
 ### 2. 실행 명령어
-1. **라즈베리 파이에서 통신 연결 시작**
+1. **소프트웨어 및 라이브러리**
    ```bash
-   python rasberry.py
+   pip install -r requirements.txt
    ```
+   그리고 
 2. **라즈베리 파이에서 촬영된 사진을 노트북으로 전송**
    ```bash
    python3 main.py
    ```
-3. **노트북에서 폴더 모니터링 시작**
-   ```bash
-   python monitor_real.py
-   ```
-4. **라즈베리 파이에서 카메라 촬영 시작**
+3. **라즈베리 파이에서 카메라 촬영 시작**
    ```bash
    python3 camera_controller.py
    ```
-
+4. **노트북에서 시작**
+   ```bash
+   python main.py
+   ```
 ---
+
+## 발견된 오류
+1. serial module 'serial' has no attribute 'Serial'
+   오류원인
+   pyserial이 올바른 위치에 설치되지 않음
+   해결방법
+   ```bash
+      python -m pip install --force-reinstall pyserial
+   ```
+
+## 폴더 설명
+
+| 폴더명                  | 설명 |
+|--------------------------|------------------------------------------------|
+| `laptop`           | 노트북에서 실행되는 파일 |
+| `arduino`  | 아두이노에서 실행되는 파일 |
+| `incoming_images`               | 라즈베리 파이에서 이미지를 받아오는 파일 경로 |
+| `final_model`       | 학습된 YOLO 모델을 저장하는 폴더 |
+| `runs/detect`            | YOLO가 분석한 결과를 저장하는 폴더 |
+
 ## 파일 설명
 
 | 파일명                  | 설명 |
 |--------------------------|------------------------------------------------|
-| `rasberry.py`           | 라즈베리 파이와 아두이노 간 통신 설정 |
-| `camera_controller.py`  | 카메라 모듈을 사용하여 일정 간격으로 사진 촬영 |
-| `main.py`               | 촬영된 사진을 노트북으로 자동 전송 |
-| `monitor_real.py`       | `watchdog`을 활용하여 사진을 감지하고 YOLO 분석 실행 |
-| `arduino.py`            | 아두이노에서 분석된 좌표를 바탕으로 레이저 위치 및 각도 조정 |
+| `laptop/rasberry.py`           | 라즈베리 파이와 아두이노 간 통신 설정 |
+| `rasberry/camera_controller.py`  | 카메라 모듈을 사용하여 일정 간격으로 사진 촬영 |
+| `rasberry/main.py`               | 촬영된 사진을 노트북으로 자동 전송 |
+| `laptop/monitor_real.py`       | `watchdog`을 활용하여 사진을 감지하고 YOLO 분석 실행 |
+| `arduino/arduino.ino`            | 아두이노에서 분석된 좌표를 바탕으로 레이저 위치 및 각도 조정 |
+| `main.py`            | rasberry.py와 monitor_real.py 한번에 실행행 |
 
 ---
 ## 요구 사항
@@ -61,12 +82,8 @@
   - 아두이노 (서보 모터 및 레이저 포함)
   - 노트북 (YOLO 실행 가능 환경)
 
-- **소프트웨어 및 라이브러리**
-  - Python 3
-  - OpenCV
-  - YOLOv5 또는 YOLOv8
-  - `watchdog` (파일 변경 감지 라이브러리)
-  - PySerial (라즈베리 파이 ↔ 아두이노 통신용)
+
+
   
 ---
 ## 참고 사항

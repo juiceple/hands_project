@@ -7,7 +7,7 @@ RPI_HOST = "192.168.1.119"
 RPI_USER = "hands"
 RPI_PASSWORD = "314"
 RPI_YOLO_DIR = "/home/hands/yolo_file"
-LOCAL_SAVE_DIR = "C:/Users/khje1/Desktop/코딩/hands_final/incoming_images"
+LOCAL_SAVE_DIR = os.path.join(os.getcwd(), "incoming_images")
 PHOTO_LIMIT = 5  # 로컬에 저장할 사진(파일) 개수 제한
 
 # 📌 로컬 저장 폴더가 없으면 생성
