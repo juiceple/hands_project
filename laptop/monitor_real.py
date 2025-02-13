@@ -9,9 +9,9 @@ from watchdog.events import FileSystemEventHandler
 from ultralytics import YOLO
 
 ###########################
-# 1. 아두이노 시리얼 연결 설정
+# 1. 아두이노 시리얼 연결 설정 
 ###########################
-SERIAL_PORT = "COM4"  # 환경에 맞게 수정 (예: Linux는 '/dev/ttyUSB0')
+SERIAL_PORT = "COM3"  # 환경에 맞게 수정 (예: Linux는 '/dev/ttyUSB0')
 BAUD_RATE = 9600
 
 try:
