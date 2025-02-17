@@ -2,6 +2,13 @@
 
 # 조류 퇴치기 프로젝트
 
+## 시연 영상
+```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H2yaHJI-CNM?start=19" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+---
+
 ## 개요
 본 프로젝트는 YOLO를 활용하여 새의 현재 위치를 분석하고, 해당 위치에 레이저를 쏘아 조류를 퇴치하는 시스템을 구축하는 것을 목표로 합니다.
 
@@ -11,10 +18,6 @@
 - **아두이노**: 분석된 좌표를 받아 레이저를 조절하여 조류 퇴치 수행
 
 ---
-
-## 시연 영상
-<!-- YouTube 시연영상 임베드 (시작 시간 19초부터) -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/H2yaHJI-CNM?start=19" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 시스템 작동 과정
 
